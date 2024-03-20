@@ -1,0 +1,2057 @@
+Query,Output
+"If there are more than 10 high-priority tasks, prioritize them; else, get the current user's ID","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      },
+      {
+        ""argument_name"": ""limit"",
+        ""argument_value"": 10
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 10
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+Loop 5 times and get the current user's ID.,"[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 5
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  }
+]
+"
+"If the current user is 'DEVU-123', create actionable tasks from a text; else, get the ID of the sprint.","[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[0]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-123""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[3]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""create_actionable_tasks_from_text"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""text"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]
+"
+"If the current user is 'DEVU-456', summarize a list of objects; else, get the ID of the current sprint.","[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[0]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-456""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[3]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""summarize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]
+"
+"If there are tasks with severity 'blocker', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""ticket.severity"",
+        ""argument_value"": ""blocker""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+"If there are tasks owned by 'DEVU-456' and created by 'DEVU-789', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""owned_by"",
+        ""argument_value"": ""DEVU-456""
+      },
+      {
+        ""argument_name"": ""created_by"",
+        ""argument_value"": ""DEVU-789""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+"If there are more than 5 unresolved issues with priority 'high', summarize them; else, loop 3 times and get the current user's ID","
+[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""resolution_status"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""unresolved_issue"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[1]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 5
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[3]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[5]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[6]""
+      }
+    ]
+  },
+  { ""tool_name"": ""summarize_objects""
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects""
+        ""argument_value"": ""$$PREV[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 3
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$NEXT[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are more than 5 high-priority unresolved issues OR the current user is 'DEVU-123', prioritize them; else, get the current user's ID.","
+[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""resolution_status"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""unresolved_issue"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[1]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 5
+      }
+    ]
+  },
+  {
+      ""tool_name"": ""whoami"",
+      ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[4]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-123""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""logical_or"",
+    ""arguments"":[
+      {
+      ""argument_name"": ""condition1"",
+      ""argument_value"": ""$$PREV[3]""
+      },
+      {
+      ""argument_name"": ""condition2"",
+      ""argument_value"": ""$$PREV[5]""
+      }  
+    ]
+  }
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[6]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[8]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[9]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[7]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are no unresolved high-priority issues, loop 2 times and get the current user's ID; else, prioritize the issues.","
+[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""resolution_status"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""unresolved_issue"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[1]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""logical_not"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""condition"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[3]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[6]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[7]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 2
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$PREV[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[4]""
+      }
+    ]
+  }
+]
+"
+"If the length of the unresolved high-priority issues is greater than 5, summarize them; else, loop 2 times and get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""resolution_status"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""unresolved_issue"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[1]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 5
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[3]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[5]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[7]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""summarize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },                                                                                  
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 2
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$PREV[6]""
+      }
+    ]
+  }
+]"
+ Loop 5 times and get the current user's ID,"[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 5
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  }
+]"
+"If there are more than 10 high-priority tasks, prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 10
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+"If the current user is 'DEVU-123', create actionable tasks from text; else, get the ID of the sprint.","[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[0]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-456""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[3]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""summarize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]"
+"If there are tasks with severity 'blocker', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""ticket.severity"",
+        ""argument_value"": ""blocker""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+"If there are tasks owned by 'DEVU-456' and created by 'DEVU-789', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""owned_by"",
+        ""argument_value"": ""DEVU-456""
+      },
+      {
+        ""argument_name"": ""created_by"",
+        ""argument_value"": ""DEVU-789""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+Loop 3 times and get the current user's ID.,"[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 3
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  }
+]"
+"If there are no unresolved high-priority issues, loop 2 times and get the current user's ID; else, prioritize the issues","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""resolution_status"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""unresolved_issue"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[1]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""logical_not"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""condition"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[3]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[6]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[7]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 2
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$PREV[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[4]""
+      }
+    ]
+  }
+]"
+"If there are more than 3 high-priority tasks owned by 'DEVU-789', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      },
+      {
+        ""argument_name"": ""owned_by"",
+        ""argument_value"": ""DEVU-789""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 3
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are tasks with severity 'blocker' and created by 'DEVU-123', prioritize them; else, get the ID of the current sprint","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""ticket.severity"",
+        ""argument_value"": ""blocker""
+      },
+      {
+        ""argument_name"": ""created_by"",
+        ""argument_value"": ""DEVU-123""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]"
+"If there are more than 5 unresolved issues, summarize them; else, loop 3 times and get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""resolution_status"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""unresolved_issue"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[1]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 5
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[3]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[6]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[7]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""summarize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""loop_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Repetitions"",
+        ""argument_value"": 3
+      },
+      {
+        ""argument_name"": ""Go_to"",
+        ""argument_value"": ""$$PREV[5]""
+      }
+    ]
+  }
+]
+"
+"If there are tasks owned by 'DEVU-456' and created by 'DEVU-789', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""owned_by"",
+        ""argument_value"": ""DEVU-456""
+      },
+      {
+        ""argument_name"": ""created_by"",
+        ""argument_value"": ""DEVU-789""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are more than 10 high-priority tasks, prioritize them; else, get the current user's ID","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 10
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+"If the current user is 'DEVU-123', create actionable tasks from text; else, get the ID of the sprint.","[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[0]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-123""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[3]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""create_actionable_tasks_from_text"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""text"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]"
+"If the current user is 'DEVU-456', summarize a list of objects; else, get the ID of the current sprint.","[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[0]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-456""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[3]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""summarize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]"
+"If there are tasks with severity 'blocker', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""ticket.severity"",
+        ""argument_value"": ""blocker""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are tasks owned by 'DEVU-456' and created by 'DEVU-789', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""owned_by"",
+        ""argument_value"": ""DEVU-456""
+      },
+      {
+        ""argument_name"": ""created_by"",
+        ""argument_value"": ""DEVU-789""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are unresolved issues with a priority level higher than 'medium', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""unresolved_issues"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""priority"",
+        ""argument_value"": ""high""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are unresolved issues with a due date in the next 3 days, prioritize them; else, get the current user's ID
+","[
+  {
+    ""tool_name"": ""date_time"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""starting_date"",
+        ""argument_value"": ""09-12-2023""
+      },
+      {
+        ""argument_name"": ""ending_date"",
+        ""argument_value"": ""12-12-2023""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""check_issue_resolution"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""resolution_status"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[1]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[3]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[5]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[6]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]
+"
+"If there are tasks owned by 'DEVU-456' and created by 'DEVU-789', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""owned_by"",
+        ""argument_value"": ""DEVU-456""
+      },
+      {
+        ""argument_name"": ""created_by"",
+        ""argument_value"": ""DEVU-789""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are more than 10 high-priority tasks, prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.priority"",
+        ""argument_value"": ""high""
+      },
+      {
+        ""argument_name"": ""limit"",
+        ""argument_value"": 10
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 10
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If the current user is 'DEVU-123', create actionable tasks from text; else, get the ID of the sprint.","[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[0]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-123""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[3]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""create_actionable_tasks_from_text"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""text"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]"
+"If the current user is 'DEVU-456', summarize a list of objects; else, get the ID of the current sprint.","[
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  },
+  {
+    ""tool_name"": ""equal_to"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[0]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": ""DEVU-456""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[3]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[4]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""summarize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[2]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""get_sprint_id"",
+    ""arguments"": []
+  }
+]"
+"If there are tasks with severity 'blocker', prioritize them; else, get the current user's ID.","[
+  {
+    ""tool_name"": ""works_list"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""issue.severity"",
+        ""argument_value"": ""blocker""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""length"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""array"",
+        ""argument_value"": ""$$PREV[0]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""Greater_than"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""left_value"",
+        ""argument_value"": ""$$PREV[1]""
+      },
+      {
+        ""argument_name"": ""right_value"",
+        ""argument_value"": 0
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""if_else_condition"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""Function"",
+        ""argument_value"": ""$$PREV[2]""
+      },
+      {
+        ""argument_name"": ""If_true"",
+        ""argument_value"": ""$$NEXT[4]""
+      },
+      {
+        ""argument_name"": ""If_false"",
+        ""argument_value"": ""$$NEXT[5]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""prioritize_objects"",
+    ""arguments"": [
+      {
+        ""argument_name"": ""objects"",
+        ""argument_value"": ""$$PREV[3]""
+      }
+    ]
+  },
+  {
+    ""tool_name"": ""who_am_i"",
+    ""arguments"": []
+  }
+]"
+"If there are more than 5 unresolved bugs, assign them to the current user; else, get the current sprint details.",

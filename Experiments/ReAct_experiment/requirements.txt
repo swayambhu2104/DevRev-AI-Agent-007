@@ -1,0 +1,4 @@
+langchain
+typing
+pydantic
+re
